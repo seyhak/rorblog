@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  rails:
+    container_name: rails
+    build:
+      context: ./backend/blog/
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    # environment:
+      # PG_HOST: postgres
+      # PG_NAME: PG
+      # PG_USER: seyhak
+      # PG_PASSWORD: seyhak_pass
+    volumes:
+      - ./backend/:/usr/src/app:delegated
+      # - ./frontend/:/usr/src/app:delegated
+    # depends_on:
+      # frontend:
+      #   condition: service_started
+    #   postgres:
+    #     condition: service_healthy
+    # links:
+    #   - postgres
+    tty: true
+
+# volumes:
+  # postgres_data:
